@@ -3,6 +3,7 @@
 #include<cstdlib>
 #include<string>
 #include<ctime>
+#include "ClsDate.h"
 using namespace std;
 class clsUtility {
    
@@ -152,12 +153,31 @@ public:
 		return FullKey;
 
 	}
-	static void Swap2Numbers(int& num1, int& num2) {
+	static void Swap(int& num1, int& num2) {
 		int ToSwap;
 		ToSwap = num1;
 		num1 = num2;
 		num2 = ToSwap;
 	}
+
+    static void Swap(string& num1, string& num2) {
+		string ToSwap;
+		ToSwap = num1;
+		num1 = num2;
+		num2 = ToSwap;
+	}
+    static void Swap(char& num1, char& num2) {
+        char ToSwap;
+        ToSwap = num1;
+        num1 = num2;
+        num2 = ToSwap;
+    }
+    static void swap(ClsDate& num1, ClsDate& num2) {
+        ClsDate ToSwap;
+        ToSwap = num1;
+        num1 = num2;
+        num2 = ToSwap;
+    }
 	enum enNumberTypeEO { Even = 1, Odd = 2 };
 	static enNumberTypeEO CheckNumberType(int num) {
 		if (num % 2 != 0)
@@ -166,4 +186,38 @@ public:
 			return enNumberTypeEO::Even;
 	}
 
+
+
+      static  void ShuffleArray(int arr[100], int arrLength)
+    {
+
+        for (int i = 0; i < arrLength; i++)
+        {
+            Swap(arr[RandomNumber(1, arrLength) - 1], arr[RandomNumber(1, arrLength) - 1]);
+        }
+
+    }
+
+    static void ShuffleArray(string arr[100], int arrLength)
+{
+    for (int i = arrLength - 1; i > 0; i--)
+    {
+        int j = RandomNumber(0, i);
+        Swap(arr[i], arr[j]);
+    }
+}
+
+
+    static string  Tabs(short NumberOfTabs)
+    {
+        string t = "";
+
+        for (int i = 1; i < NumberOfTabs; i++)
+        {
+            t = t + "\t";
+            cout << t;
+        }
+        return t;
+
+    }
 };
